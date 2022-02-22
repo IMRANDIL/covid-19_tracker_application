@@ -14,25 +14,58 @@ import styles from './Chart.module.css'
 
 
 import {
-    Chart as ChartJS,
+    Chart,
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
+    Legend,
     Title,
     Tooltip,
-    Legend,
+    SubTitle
 } from 'chart.js';
 
-ChartJS.register(
+Chart.register(
+    ArcElement,
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    BubbleController,
+    DoughnutController,
+    LineController,
+    PieController,
+    PolarAreaController,
+    RadarController,
+    ScatterController,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    LogarithmicScale,
+    RadialLinearScale,
+    TimeScale,
+    TimeSeriesScale,
+    Decimation,
+    Filler,
+    Legend,
     Title,
     Tooltip,
-    Legend,
-
+    SubTitle
 );
 
 
@@ -47,7 +80,9 @@ ChartJS.register(
 
 
 
-const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+
+
+const Chaart = ({ data: { confirmed, recovered, deaths }, country }) => {
 
     const [dailyData, setDailyData] = useState([]);
 
@@ -100,7 +135,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
                         datasets: [{
                             label: `People`,
                             backgroundColor: ['rgba(0,0,255,0.5)', 'rgba(0,255, 0,0.5)', 'rgba(255,0,0,0.5)'],
-                            data: [confirmed.value, recovered.value, deaths.value]
+                            data: [confirmed.value, recovered.value || 1, deaths.value]
                         }]
                     }}
                     options={{
@@ -126,4 +161,4 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     )
 }
 
-export default Chart
+export default Chaart
