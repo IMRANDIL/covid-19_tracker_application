@@ -16,14 +16,27 @@ import { Countries } from '../../Api';
 
 const CountryPicker = () => {
 
-
+    const [fetchCountries, setFetchCountries] = useState([]);
 
 
 
 
     useEffect(() => {
-        Countries()
-    }, [])
+
+        const fetchCountries = async () => {
+            try {
+                setFetchCountries(await Countries());
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchCountries()
+
+
+    }, [setFetchCountries]);
+
+    console.log(fetchCountries);
 
     return (
         <FormControl className={styles.formControl}>
