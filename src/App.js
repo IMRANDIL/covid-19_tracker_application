@@ -4,6 +4,8 @@ import styles from './App.module.css';
 import { Cards, Chart, CountryPicker } from './components';
 
 
+import TitleImage from './Images/cimage.png'
+
 import { fetchData } from './Api';
 
 
@@ -38,6 +40,9 @@ class App extends React.Component {
     const { data, country } = this.state;
     return (
       <div className={styles.container} >
+
+        <img className={styles.image} src={TitleImage} alt='TitleImage' />
+
         <Cards data={data} />
 
         <CountryPicker handleCountryChange={this.handleCountryChange} />
