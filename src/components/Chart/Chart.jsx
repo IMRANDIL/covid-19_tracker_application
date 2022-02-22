@@ -4,9 +4,44 @@ import React, { useState, useEffect } from 'react'
 import { fetchDailyData } from '../../Api';
 
 
-import { Line, Bar } from 'react-chartjs-2';
+
+
+import { Line } from 'react-chartjs-2';
 
 import styles from './Chart.module.css'
+
+
+
+
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,11 +56,11 @@ const Chart = () => {
             const Data = await fetchDailyData();
             setDailyData(Data)
         }
-        console.log(dailyData);
+
 
         fetchApi()
 
-    }, [dailyData])
+    }, [])
 
 
 
