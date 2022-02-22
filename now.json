@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "name": "covid-19_tracker_application",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "index.html"
+    }
+  ]
+}
